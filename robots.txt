@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: 
+Sitemap: https://www.ssrahul96.xyz/sitemap.xml
