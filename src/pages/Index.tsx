@@ -1,25 +1,22 @@
-
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense, lazy } from "react";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
-import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
-import ContactSection from "@/components/ContactSection";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { ThemeProvider, useTheme } from "@/components/ThemeProvider";
-import ResumeSection from "@/components/ResumeSection";
+
+// Lazy-loaded components
+const ProjectsSection = lazy(() => import("@/components/ProjectsSection"));
+const ResumeSection = lazy(() => import("@/components/ResumeSection"));
+const Footer = lazy(() => import("@/components/Footer"));
+// const ContactSection = lazy(() => import("@/components/ContactSection"));
 
 const IndexContent = () => {
   const { theme, toggleTheme } = useTheme();
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Simulate loading for a smoother entrance
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 300);
-
+    const timer = setTimeout(() => setIsLoaded(true), 300);
     return () => clearTimeout(timer);
   }, []);
 
@@ -39,12 +36,20 @@ const IndexContent = () => {
         <HeroSection />
         <AboutSection />
         <SkillsSection />
-        <ProjectsSection />
-        <ResumeSection />
-        {/* <ContactSection /> */}
+        <Suspense fallback={<div className="text-center py-10">Loading projects...</div>}>
+          <ProjectsSection />
+        </Suspense>
+        <Suspense fallback={<div className="text-center py-10">Loading resume...</div>}>
+          <ResumeSection />
+        </Suspense>
+        {/* <Suspense fallback={<div>Loading contact...</div>}>
+          <ContactSection />
+        </Suspense> */}
       </main>
 
-      <Footer />
+      <Suspense fallback={<div className="text-center py-4">Loading footer...</div>}>
+        <Footer />
+      </Suspense>
     </div>
   );
 };

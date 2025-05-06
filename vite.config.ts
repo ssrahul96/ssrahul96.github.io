@@ -18,5 +18,24 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  }, build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          radix: [
+            "@radix-ui/react-accordion",
+            "@radix-ui/react-dialog",
+            "@radix-ui/react-tooltip",
+            "@radix-ui/react-tabs",
+            "@radix-ui/react-popover",
+            "@radix-ui/react-dropdown-menu",
+            // Add others as needed
+          ],
+          reactVendor: ["react", "react-dom", "react-router-dom"],
+          uiUtils: ["clsx", "lucide-react", "tailwind-merge"],
+          formLibs: ["react-hook-form", "zod", "@hookform/resolvers"],
+        },
+      },
+    },
   },
 }));
