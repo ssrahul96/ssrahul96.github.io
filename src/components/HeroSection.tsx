@@ -29,7 +29,7 @@ const HeroSection = () => {
             </p> */}
 
             <div className="flex flex-wrap gap-4 pt-4 animate-fade-in" style={{ animationDelay: "600ms" }}>
-              <a href="/resume" target="_blank">
+              <a href="/#/resume" target="_blank">
                 <Button size="lg" className="rounded-full gap-2">
                   <View size={18} />
                   View Resume

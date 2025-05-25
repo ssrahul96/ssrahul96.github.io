@@ -26,13 +26,20 @@ const Navbar = ({ toggleTheme, isDarkTheme }: NavbarProps) => {
   }, []);
 
   const navItems = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Skills", href: "#skills" },
-    { label: "Projects", href: "#projects" },
-    { label: "Resume", href: "#resume" },
+    { label: "Home", href: "home" },
+    { label: "About", href: "about" },
+    { label: "Skills", href: "skills" },
+    { label: "Projects", href: "projects" },
+    { label: "Resume", href: "resume" },
     // { label: "Contact", href: "#contact" },
   ];
+
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const el = useRef(null);
 
@@ -69,13 +76,13 @@ const Navbar = ({ toggleTheme, isDarkTheme }: NavbarProps) => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
-            <a
+            <button
               key={item.label}
-              href={item.href}
+              onClick={() => scrollToSection(item.href)}
               className="text-foreground hover:text-primary transition-colors font-medium"
             >
               {item.label}
-            </a>
+            </button>
           ))}
           <Button
             variant="ghost"
