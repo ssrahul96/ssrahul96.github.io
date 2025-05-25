@@ -13,10 +13,17 @@ const ResumeSection = () => {
 
   const experiences: Experience[] = [
     {
+      title: "Software Engineer III",
+      company: "Wayfair",
+      location: "Bengaluru, India",
+      duration: "2025 - Present",
+      descriptions: []
+    },
+    {
       title: "Senior Software Engineer",
       company: "Checkpoint Systems",
       location: "Bengaluru, India",
-      duration: "2020 – Present",
+      duration: "2020 – 2025",
       descriptions: [
         "Designed, built, and maintained infrastructure using Terraform as IaaC, reducing manual effort by 80%.",
         "Architected and administered Azure Kubernetes Service clusters.",
