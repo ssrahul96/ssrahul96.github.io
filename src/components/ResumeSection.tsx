@@ -17,7 +17,9 @@ const ResumeSection = () => {
       company: "Wayfair",
       location: "Bengaluru, India",
       duration: "2025 - Present",
-      descriptions: []
+      descriptions: [
+        "Working as part of Platform Foundations team, focusing on building and maintaining the core platform services.",
+      ]
     },
     {
       title: "Senior Software Engineer",
