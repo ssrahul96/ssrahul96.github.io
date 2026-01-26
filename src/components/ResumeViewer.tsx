@@ -47,6 +47,10 @@ const ResumeViewer: React.FC = () => {
                 <meta name="twitter:image" content="https://ssrahul96.xyz/og.png" />
             </Helmet>
 
+            <h1 style={{ position: "absolute", left: "-10000px", top: "auto", width: "1px", height: "1px", overflow: "hidden" }}>
+                Resume | Rahul Somasundaram
+            </h1>
+
             <div style={{ margin: 0, height: "100vh", overflow: "hidden" }}>
                 <iframe
                     title="rahul_resume_devops"

@@ -34,8 +34,30 @@ const IndexContent = () => {
       <Helmet>
         <title>Rahul Somasundaram | DevOps Engineer &amp; Cloud Architect</title>
         <link rel="canonical" href="https://ssrahul96.xyz/" />
+        <meta
+          name="description"
+          content="Rahul Somasundaram is a collaborative developer and cloud engineer focused on scalable, cloud-native solutions and modern tech innovation."
+        />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Rahul Somasundaram" />
+        <meta property="og:title" content="Rahul Somasundaram" />
+        <meta
+          property="og:description"
+          content="Rahul Somasundaram is a collaborative developer and cloud engineer focused on scalable, cloud-native solutions and modern tech innovation."
+        />
         <meta property="og:url" content="https://ssrahul96.xyz/" />
+        <meta property="og:image" content="https://ssrahul96.xyz/og.png" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="ssrahul96.xyz" />
+        <meta name="twitter:title" content="Rahul Somasundaram" />
+        <meta
+          name="twitter:description"
+          content="Rahul Somasundaram is a collaborative developer and cloud engineer focused on scalable, cloud-native solutions and modern tech innovation."
+        />
         <meta property="twitter:url" content="https://ssrahul96.xyz/" />
+        <meta name="twitter:image" content="https://ssrahul96.xyz/og.png" />
       </Helmet>
 
       <Navbar toggleTheme={toggleTheme} isDarkTheme={theme === "dark"} />
