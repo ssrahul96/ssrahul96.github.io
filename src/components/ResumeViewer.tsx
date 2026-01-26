@@ -6,7 +6,8 @@ const ResumeViewer: React.FC = () => {
         <>
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>Rahul Somasundaram</title>
+                <title>Resume | Rahul Somasundaram</title>
+                <link rel="canonical" href="https://ssrahul96.xyz/resume" />
                 <meta
                     name="viewport"
                     content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimal-ui"
@@ -25,9 +26,9 @@ const ResumeViewer: React.FC = () => {
                 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
 
                 {/* Open Graph Meta Tags */}
-                <meta property="og:url" content="https://ssrahul96.xyz" />
+                <meta property="og:url" content="https://ssrahul96.xyz/resume" />
                 <meta property="og:type" content="website" />
-                <meta property="og:title" content="Rahul Somasundaram" />
+                <meta property="og:title" content="Resume | Rahul Somasundaram" />
                 <meta
                     property="og:description"
                     content="Rahul Somasundaram is a collaborative developer and cloud engineer focused on scalable, cloud-native solutions and modern tech innovation."
@@ -37,8 +38,8 @@ const ResumeViewer: React.FC = () => {
                 {/* Twitter Meta Tags */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta property="twitter:domain" content="ssrahul96.xyz" />
-                <meta property="twitter:url" content="https://ssrahul96.xyz" />
-                <meta name="twitter:title" content="Rahul Somasundaram" />
+                <meta property="twitter:url" content="https://ssrahul96.xyz/resume" />
+                <meta name="twitter:title" content="Resume | Rahul Somasundaram" />
                 <meta
                     name="twitter:description"
                     content="Rahul Somasundaram is a collaborative developer and cloud engineer focused on scalable, cloud-native solutions and modern tech innovation."

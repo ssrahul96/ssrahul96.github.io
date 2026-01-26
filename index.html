@@ -10,6 +10,81 @@
   <meta name="description"
     content="Rahul Somasundaram is a collaborative developer and cloud engineer focused on scalable, cloud-native solutions and modern tech innovation.">
   <meta name="author" content="Rahul Somasundaram" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="canonical" href="https://ssrahul96.xyz/" />
+
+  <script>
+    (function () {
+      // GitHub Pages SPA fallback: restore the originally requested path from 404.html
+      var url = new URL(window.location.href);
+      var redirect = url.searchParams.get("redirect");
+      if (!redirect) return;
+
+      try {
+        var decoded = decodeURIComponent(redirect);
+        if (decoded && decoded.startsWith("/")) {
+          window.history.replaceState(null, "", decoded);
+        }
+      } finally {
+        // no-op
+      }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://ssrahul96.xyz/#person",
+          "name": "Rahul Somasundaram",
+          "url": "https://ssrahul96.xyz/",
+          "image": "https://ssrahul96.xyz/assets/img/profile.webp",
+          "jobTitle": "DevOps Engineer & Cloud Architect",
+          "email": "mailto:rahulstsgr@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bengaluru",
+            "addressCountry": "IN"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/ssrahul96/",
+            "https://github.com/ssrahul96/"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://ssrahul96.xyz/#website",
+          "name": "Rahul Somasundaram",
+          "url": "https://ssrahul96.xyz/",
+          "publisher": { "@id": "https://ssrahul96.xyz/#person" }
+        }
+      ]
+    }
+  </script>
+
+  <script>
+    (function () {
+      var canonicalHost = "ssrahul96.xyz";
+      var host = window.location.hostname;
+
+      // Don't redirect during local development.
+      if (host === "localhost" || host === "127.0.0.1") return;
+
+      // Consolidate `www` + `github.io` to the canonical host.
+      if (host === "www.ssrahul96.xyz" || host === "ssrahul96.github.io") {
+        var newUrl =
+          "https://" +
+          canonicalHost +
+          window.location.pathname +
+          window.location.search +
+          window.location.hash;
+        window.location.replace(newUrl);
+      }
+    })();
+  </script>
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -19,6 +94,7 @@
   <meta property="og:url" content="https://ssrahul96.xyz">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Rahul Somasundaram">
+  <meta property="og:site_name" content="Rahul Somasundaram" />
   <meta property="og:description"
     content="Rahul Somasundaram is a collaborative developer and cloud engineer focused on scalable, cloud-native solutions and modern tech innovation.">
   <meta property="og:image" content="https://ssrahul96.xyz/og.png">

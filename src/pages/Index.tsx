@@ -4,6 +4,7 @@ import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider, useTheme } from "@/components/ThemeProvider";
+import { Helmet } from "react-helmet";
 
 // Lazy-loaded components
 const ProjectsSection = lazy(() => import("@/components/ProjectsSection"));
@@ -30,6 +31,13 @@ const IndexContent = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <Helmet>
+        <title>Rahul Somasundaram | DevOps Engineer &amp; Cloud Architect</title>
+        <link rel="canonical" href="https://ssrahul96.xyz/" />
+        <meta property="og:url" content="https://ssrahul96.xyz/" />
+        <meta property="twitter:url" content="https://ssrahul96.xyz/" />
+      </Helmet>
+
       <Navbar toggleTheme={toggleTheme} isDarkTheme={theme === "dark"} />
 
       <main className="flex-grow">
