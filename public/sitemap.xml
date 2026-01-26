@@ -18,5 +18,33 @@
   <priority>0.8</priority>
 </url>
 
+<url>
+  <loc>https://www.ssrahul96.xyz/</loc>
+  <lastmod>2026-01-26</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://www.ssrahul96.xyz/resume</loc>
+  <lastmod>2026-01-26</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.5</priority>
+</url>
+
+<url>
+  <loc>https://ssrahul96.github.io/</loc>
+  <lastmod>2026-01-26</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.3</priority>
+</url>
+
+<url>
+  <loc>https://ssrahul96.github.io/resume</loc>
+  <lastmod>2026-01-26</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.2</priority>
+</url>
+
 
 </urlset>

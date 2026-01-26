@@ -2,3 +2,5 @@ User-agent: *
 Disallow:
 
 Sitemap: https://ssrahul96.xyz/sitemap.xml
+Sitemap: https://www.ssrahul96.xyz/sitemap.xml
+Sitemap: https://ssrahul96.github.io/sitemap.xml
