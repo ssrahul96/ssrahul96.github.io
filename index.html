@@ -14,14 +14,10 @@
   <meta name="theme-color" content="#0b1220" />
   <meta name="color-scheme" content="dark light" />
 
-  <style>
-    html, body { background: #ffffff; color: #0f172a; }
-    html.dark, html.dark body { background: #0b1220; color: #f8fafc; }
-  </style>
-
   <script>
     (function () {
       // Apply theme ASAP to avoid white flash before React mounts.
+      // Also set inline colors immediately so first paint matches theme.
       try {
         var storedTheme = localStorage.getItem("theme");
         var theme =
@@ -34,11 +30,28 @@
         var root = document.documentElement;
         root.classList.remove("light", "dark");
         root.classList.add(theme);
+
+        // Make the very first paint match the theme.
+        if (theme === "dark") {
+          root.style.backgroundColor = "#0b1220";
+          root.style.color = "#f8fafc";
+          root.style.colorScheme = "dark";
+        } else {
+          root.style.backgroundColor = "#ffffff";
+          root.style.color = "#0f172a";
+          root.style.colorScheme = "light";
+        }
       } catch (e) {
         // ignore
       }
     })();
   </script>
+
+  <style>
+    /* Default to dark to avoid any white flash. */
+    html, body { background: #0b1220; color: #f8fafc; }
+    html.light, html.light body { background: #ffffff; color: #0f172a; }
+  </style>
 
   <script>
     (function () {
