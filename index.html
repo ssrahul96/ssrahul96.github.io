@@ -12,6 +12,33 @@
   <meta name="author" content="Rahul Somasundaram" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#0b1220" />
+  <meta name="color-scheme" content="dark light" />
+
+  <style>
+    html, body { background: #ffffff; color: #0f172a; }
+    html.dark, html.dark body { background: #0b1220; color: #f8fafc; }
+  </style>
+
+  <script>
+    (function () {
+      // Apply theme ASAP to avoid white flash before React mounts.
+      try {
+        var storedTheme = localStorage.getItem("theme");
+        var theme =
+          storedTheme === "dark" || storedTheme === "light"
+            ? storedTheme
+            : window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+
+        var root = document.documentElement;
+        root.classList.remove("light", "dark");
+        root.classList.add(theme);
+      } catch (e) {
+        // ignore
+      }
+    })();
+  </script>
 
   <script>
     (function () {
