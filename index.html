@@ -48,8 +48,14 @@
   </script>
 
   <style>
-    /* Default to dark to avoid any white flash. */
-    html, body { background: #0b1220; color: #f8fafc; }
+    /* Default follows system to minimize theme flashes. */
+    html, body { background: #ffffff; color: #0f172a; }
+    @media (prefers-color-scheme: dark) {
+      html, body { background: #0b1220; color: #f8fafc; }
+    }
+
+    /* Explicit overrides when our early script sets the class. */
+    html.dark, html.dark body { background: #0b1220; color: #f8fafc; }
     html.light, html.light body { background: #ffffff; color: #0f172a; }
   </style>
 
