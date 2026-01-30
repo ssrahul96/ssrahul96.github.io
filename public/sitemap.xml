@@ -5,17 +5,11 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
-  <loc>https://ssrahul96.xyz/</loc>
-  <lastmod>2026-01-28</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>1.0</priority>
+  <loc>https://ssrahul96.me/</loc>
 </url>
 
 <url>
-  <loc>https://ssrahul96.xyz/resume</loc>
-  <lastmod>2026-01-28</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
+  <loc>https://ssrahul96.me/resume</loc>
 </url>
 
 

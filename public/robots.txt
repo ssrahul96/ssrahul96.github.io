@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ssrahul96.xyz/sitemap.xml
