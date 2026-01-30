@@ -8,7 +8,7 @@
 
 - 🌱 I’m currently learning **Advance Kubernetes**
 
-- 👨‍💻 Portfolio available at [ssrahul96.xyz](ssrahul96.xyz)
+- 👨‍💻 Portfolio available at [ssrahul96.me](https://ssrahul96.me)
 
 - 💬 Ask me about **kubernetes,cloud,cicd**
 

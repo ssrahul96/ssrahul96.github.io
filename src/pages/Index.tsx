@@ -33,7 +33,7 @@ const IndexContent = () => {
     <div className="flex flex-col min-h-screen">
       <Helmet>
         <title>Rahul Somasundaram | DevOps Engineer &amp; Cloud Architect</title>
-        <link rel="canonical" href="https://ssrahul96.xyz/" />
+        <link rel="canonical" href="https://ssrahul96.me/" />
         <meta
           name="description"
           content="Rahul Somasundaram is a collaborative developer and cloud engineer focused on scalable, cloud-native solutions and modern tech innovation."
@@ -46,18 +46,18 @@ const IndexContent = () => {
           property="og:description"
           content="Rahul Somasundaram is a collaborative developer and cloud engineer focused on scalable, cloud-native solutions and modern tech innovation."
         />
-        <meta property="og:url" content="https://ssrahul96.xyz/" />
-        <meta property="og:image" content="https://ssrahul96.xyz/og.png" />
+        <meta property="og:url" content="https://ssrahul96.me/" />
+        <meta property="og:image" content="https://ssrahul96.me/og.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="ssrahul96.xyz" />
+        <meta property="twitter:domain" content="ssrahul96.me" />
         <meta name="twitter:title" content="Rahul Somasundaram" />
         <meta
           name="twitter:description"
           content="Rahul Somasundaram is a collaborative developer and cloud engineer focused on scalable, cloud-native solutions and modern tech innovation."
         />
-        <meta property="twitter:url" content="https://ssrahul96.xyz/" />
-        <meta name="twitter:image" content="https://ssrahul96.xyz/og.png" />
+        <meta property="twitter:url" content="https://ssrahul96.me/" />
+        <meta name="twitter:image" content="https://ssrahul96.me/og.png" />
       </Helmet>
 
       <Navbar toggleTheme={toggleTheme} isDarkTheme={theme === "dark"} />

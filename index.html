@@ -83,10 +83,10 @@
       "@graph": [
         {
           "@type": "Person",
-          "@id": "https://ssrahul96.xyz/#person",
+          "@id": "https://ssrahul96.me/#person",
           "name": "Rahul Somasundaram",
-          "url": "https://ssrahul96.xyz/",
-          "image": "https://ssrahul96.xyz/assets/img/profile.webp",
+          "url": "https://ssrahul96.me/",
+          "image": "https://ssrahul96.me/assets/img/profile.webp",
           "jobTitle": "DevOps Engineer & Cloud Architect",
           "email": "mailto:rahulstsgr@gmail.com",
           "address": {
@@ -101,10 +101,10 @@
         },
         {
           "@type": "WebSite",
-          "@id": "https://ssrahul96.xyz/#website",
+          "@id": "https://ssrahul96.me/#website",
           "name": "Rahul Somasundaram",
-          "url": "https://ssrahul96.xyz/",
-          "publisher": { "@id": "https://ssrahul96.xyz/#person" }
+          "url": "https://ssrahul96.me/",
+          "publisher": { "@id": "https://ssrahul96.me/#person" }
         }
       ]
     }
@@ -112,14 +112,17 @@
 
   <script>
     (function () {
-      var canonicalHost = "ssrahul96.xyz";
+      var canonicalHost = "ssrahul96.me";
       var host = window.location.hostname;
 
       // Don't redirect during local development.
       if (host === "localhost" || host === "127.0.0.1") return;
 
-      // Consolidate `www` + `github.io` to the canonical host.
-      if (host === "www.ssrahul96.xyz" || host === "ssrahul96.github.io") {
+      // Consolidate alternate hosts to the canonical host.
+      if (
+        host === "www." + canonicalHost ||
+        host === "ssrahul96.github.io"
+      ) {
         var newUrl =
           "https://" +
           canonicalHost +
