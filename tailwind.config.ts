@@ -4,10 +4,32 @@ import type { Config } from "tailwindcss";
 export default {
 	darkMode: ["class"],
 	content: [
-		"./pages/**/*.{ts,tsx}",
-		"./components/**/*.{ts,tsx}",
-		"./app/**/*.{ts,tsx}",
+		"./index.html",
 		"./src/**/*.{ts,tsx}",
+
+		/**
+		 * Reduce generated CSS by not scanning *all* shadcn UI components.
+		 *
+		 * Tailwind generates utilities for every class string it finds in `content`,
+		 * even if a component file is never imported at runtime. Since `src/components/ui/`
+		 * contains many optional components, scanning the whole folder can inflate the
+		 * final CSS and show up as "unused CSS" in Lighthouse.
+		 *
+		 * We exclude the entire folder and then opt-in only the UI components that are
+		 * actually imported by the app.
+		 */
+		"!./src/components/ui/**/*.{ts,tsx}",
+		"./src/components/ui/badge.tsx",
+		"./src/components/ui/button.tsx",
+		"./src/components/ui/card.tsx",
+		"./src/components/ui/input.tsx",
+		"./src/components/ui/progress.tsx",
+		"./src/components/ui/sonner.tsx",
+		"./src/components/ui/toast.tsx",
+		"./src/components/ui/toaster.tsx",
+		"./src/components/ui/tooltip.tsx",
+		"./src/components/ui/use-toast.ts",
+		"./src/components/ui/textarea.tsx",
 	],
 	prefix: "",
 	theme: {

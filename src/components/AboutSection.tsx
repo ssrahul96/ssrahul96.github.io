@@ -17,7 +17,20 @@ const AboutSection = () => {
             <div className="aspect-square rounded-2xl overflow-hidden bg-muted mb-6 shadow-md bg-background/50 backdrop-blur">
               <img
                 src="/assets/img/profile.webp"
+                srcSet={[
+                  "/assets/img/profile-128.webp 128w",
+                  "/assets/img/profile-256.webp 256w",
+                  "/assets/img/profile-384.webp 384w",
+                  "/assets/img/profile-512.webp 512w",
+                  "/assets/img/profile.webp 800w",
+                ].join(", ")}
+                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 40vw, 80vw"
                 alt="Rahul Somasundaram"
+                width={800}
+                height={800}
+                loading="lazy"
+                decoding="async"
+                fetchPriority="low"
                 className="w-full h-full object-cover"
               />
             </div>

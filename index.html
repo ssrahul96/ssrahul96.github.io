@@ -77,6 +77,43 @@
     })();
   </script>
 
+  <script>
+    (function () {
+      // Defer non-critical font usage to reduce critical request chaining on first paint.
+      // This keeps first render on system fonts, then swaps to Inter after load/idle.
+      function shouldSkipFontSwap() {
+        try {
+          var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+          return Boolean(connection && connection.saveData);
+        } catch (e) {
+          return false;
+        }
+      }
+
+      function swapFontsWhenReady() {
+        try {
+          if (shouldSkipFontSwap()) return;
+          if (!document.fonts || !document.fonts.load) return;
+          document.fonts.load('1em "Inter Variable"').then(function () {
+            document.documentElement.classList.add("fonts-loaded");
+          }).catch(function () {
+            // ignore
+          });
+        } catch (e) {
+          // ignore
+        }
+      }
+
+      window.addEventListener("load", function () {
+        if ("requestIdleCallback" in window) {
+          window.requestIdleCallback(swapFontsWhenReady, { timeout: 2000 });
+        } else {
+          setTimeout(swapFontsWhenReady, 0);
+        }
+      });
+    })();
+  </script>
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -139,9 +176,6 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Facebook Meta Tags -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
