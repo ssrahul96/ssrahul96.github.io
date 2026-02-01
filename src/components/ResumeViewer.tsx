@@ -16,10 +16,6 @@ const ResumeViewer: React.FC = () => {
                     name="keywords"
                     content="ssrahul96, Rahul Somasundaram, DevOps Engineer, Software Engineer, Open Source Contributor"
                 />
-                <meta
-                    name="description"
-                    content="Rahul Somasundaram is a collaborative developer and cloud engineer focused on scalable, cloud-native solutions and modern tech innovation."
-                />
 
                 {/* Favicons */}
                 <link rel="icon" href="/assets/img/favicon.png" />

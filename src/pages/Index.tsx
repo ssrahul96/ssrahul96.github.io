@@ -34,10 +34,6 @@ const IndexContent = () => {
       <Helmet>
         <title>Rahul Somasundaram | DevOps Engineer &amp; Cloud Architect</title>
         <link rel="canonical" href="https://ssrahul96.me/" />
-        <meta
-          name="description"
-          content="Rahul Somasundaram is a collaborative developer and cloud engineer focused on scalable, cloud-native solutions and modern tech innovation."
-        />
 
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Rahul Somasundaram" />
