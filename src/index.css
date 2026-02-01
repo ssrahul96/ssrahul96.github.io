@@ -96,6 +96,14 @@
     opacity: 0;
     animation: fadeIn 0.8s ease-in-out forwards;
   }
+
+  /* Utility classes to avoid inline animation-delay styles. */
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animate-delay-600 {
+    animation-delay: 600ms;
+  }
   
   @keyframes fadeIn {
     from {

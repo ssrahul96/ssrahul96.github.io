@@ -20,15 +20,15 @@ const HeroSection = () => {
               </span>
             </h1>
 
-            <h2 className="text-xl md:text-2xl text-muted-foreground animate-fade-in" style={{ animationDelay: "200ms" }}>
+            <h2 className="text-xl md:text-2xl text-muted-foreground animate-fade-in animate-delay-200">
               DevOps Engineer & Cloud Architect
             </h2>
 
-            {/* <p className="text-base md:text-lg text-muted-foreground/90 animate-fade-in" style={{ animationDelay: "400ms" }}>
+            {/* <p className="text-base md:text-lg text-muted-foreground/90 animate-fade-in">
               Driven by a DevOps mindset, I partner with cross-functional teams to design resilient architectures, automate end-to-end workflows, and deliver consistently high-performing applications at scale.
             </p> */}
 
-            <div className="flex flex-wrap gap-4 pt-4 animate-fade-in" style={{ animationDelay: "600ms" }}>
+            <div className="flex flex-wrap gap-4 pt-4 animate-fade-in animate-delay-600">
               <a href="https://www.linkedin.com/in/ssrahul96/" target="_blank">
                 <Button size="lg" variant="outline" className="rounded-full gap-2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>

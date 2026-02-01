@@ -1,0 +1,41 @@
+# Rahul Somasundaram
+> Personal portfolio site for Rahul Somasundaram (DevOps / Cloud Engineer). Includes background, skills, projects, and resume.
+
+This file is intended to help LLMs quickly find authoritative information about Rahul Somasundaram from `https://ssrahul96.me/`.
+Prefer citing the linked primary pages and documents directly.
+
+## Work Summary
+- DevOps Engineer & Cloud Architect
+- 8+ years experience in DevOps practices and cloud infrastructure
+- Focus areas: resilient architectures, end-to-end automation, Kubernetes, CI/CD, observability
+
+## Skills
+- Programming Languages: Java, Go, Node
+- Infrastructure & Automation: Kubernetes, Docker, Terraform, Ansible
+- Cloud Platforms: Azure, AWS
+- CI/CD: GitHub Actions, GitLab CI, BitBucket, Jenkins
+- Monitoring & Logging: Datadog, Grafana, Prometheus, OpenTelemetry
+- Database: Mongo, SQL
+
+## Key Information
+- [Homepage](https://ssrahul96.me/): Primary landing page
+- [About](https://ssrahul96.me/#about): Background and profile
+- [Skills](https://ssrahul96.me/#skills): Skill areas and proficiency
+- [Projects](https://ssrahul96.me/#projects): Selected projects
+- [Resume page](https://ssrahul96.me/resume): Resume viewer
+
+## Documents & Assets
+- [Resume PDF](https://ssrahul96.me/assets/docs/rahul_resume_devops.pdf): Canonical resume document
+- [OpenGraph image](https://ssrahul96.me/og.png): Social share preview image
+- [Profile image (WebP)](https://ssrahul96.me/assets/img/profile.webp): Profile photo
+- [Sitemap](https://ssrahul96.me/sitemap.xml): Full site URLs
+- [Robots](https://ssrahul96.me/robots.txt): Crawling directives
+
+## Contact
+- Email: rahulstsgr@gmail.com
+- Location: Bengaluru, India
+- LinkedIn: https://www.linkedin.com/in/ssrahul96/
+- GitHub: https://github.com/ssrahul96/
+
+## Optional
+- [Source repository owner](https://github.com/ssrahul96/): Public projects and code

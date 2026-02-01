@@ -1,0 +1,45 @@
+/* Minimal, render-safe CSS used before the main bundle CSS loads. */
+
+/* Default follows system to minimize flashes. */
+html,
+body {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    background: #0b1220;
+    color: #f8fafc;
+  }
+}
+
+/* Explicit overrides when our early theme script sets the class. */
+html.dark,
+html.dark body {
+  background: #0b1220;
+  color: #f8fafc;
+  color-scheme: dark;
+}
+
+html.light,
+html.light body {
+  background: #ffffff;
+  color: #0f172a;
+  color-scheme: light;
+}
+
+/* Accessible "visually hidden" utility (Tailwind-like sr-only). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+

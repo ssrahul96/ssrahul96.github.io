@@ -8,15 +8,15 @@ const ResumeViewer: React.FC = () => {
                 <title>Resume | Rahul Somasundaram</title>
             </Helmet>
 
-            <h1 style={{ position: "absolute", left: "-10000px", top: "auto", width: "1px", height: "1px", overflow: "hidden" }}>
+            <h1 className="sr-only">
                 Resume | Rahul Somasundaram
             </h1>
 
-            <div style={{ margin: 0, height: "100vh", overflow: "hidden" }}>
+            <div className="m-0 h-screen overflow-hidden">
                 <iframe
                     title="rahul_resume_devops"
                     src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://ssrahul96.me/assets/docs/rahul_resume_devops.pdf"
-                    style={{ width: "100%", height: "100%", border: "none" }}
+                    className="h-full w-full border-0"
                     allowFullScreen
                 />
             </div>

@@ -16,6 +16,8 @@
 
   <link rel="canonical" href="https://ssrahul96.me/" />
 
+  <link rel="stylesheet" href="/critical.css" />
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Rahul Somasundaram" />
@@ -48,34 +50,11 @@
         var root = document.documentElement;
         root.classList.remove("light", "dark");
         root.classList.add(theme);
-
-        // Make the very first paint match the theme.
-        if (theme === "dark") {
-          root.style.backgroundColor = "#0b1220";
-          root.style.color = "#f8fafc";
-          root.style.colorScheme = "dark";
-        } else {
-          root.style.backgroundColor = "#ffffff";
-          root.style.color = "#0f172a";
-          root.style.colorScheme = "light";
-        }
       } catch (e) {
         // ignore
       }
     })();
   </script>
-
-  <style>
-    /* Default follows system to minimize theme flashes. */
-    html, body { background: #ffffff; color: #0f172a; }
-    @media (prefers-color-scheme: dark) {
-      html, body { background: #0b1220; color: #f8fafc; }
-    }
-
-    /* Explicit overrides when our early script sets the class. */
-    html.dark, html.dark body { background: #0b1220; color: #f8fafc; }
-    html.light, html.light body { background: #ffffff; color: #0f172a; }
-  </style>
 
   <script>
     (function () {
@@ -198,7 +177,7 @@
 
 <body>
   <div id="root">
-    <main style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
+    <main class="sr-only">
       <h1>Rahul Somasundaram</h1>
       <p>DevOps Engineer &amp; Cloud Architect.</p>
       <a href="/resume">View resume</a>
