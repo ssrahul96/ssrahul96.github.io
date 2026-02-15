@@ -1,20 +1,17 @@
-import { useState, useEffect, Suspense, lazy } from "react";
+import { useState, useEffect } from "react";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider, useTheme } from "@/components/ThemeProvider";
+import ProjectsSection from "@/components/ProjectsSection";
+import ResumeSection from "@/components/ResumeSection";
+import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet";
-
-// Lazy-loaded components
-const ProjectsSection = lazy(() => import("@/components/ProjectsSection"));
-const ResumeSection = lazy(() => import("@/components/ResumeSection"));
-const Footer = lazy(() => import("@/components/Footer"));
-// const ContactSection = lazy(() => import("@/components/ContactSection"));
 
 const IndexContent = () => {
   const { theme, toggleTheme } = useTheme();
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(() => typeof window === "undefined");
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 300);
@@ -41,20 +38,12 @@ const IndexContent = () => {
         <HeroSection />
         <AboutSection />
         <SkillsSection />
-        <Suspense fallback={<div className="text-center py-10">Loading projects...</div>}>
-          <ProjectsSection />
-        </Suspense>
-        <Suspense fallback={<div className="text-center py-10">Loading resume...</div>}>
-          <ResumeSection />
-        </Suspense>
-        {/* <Suspense fallback={<div>Loading contact...</div>}>
-          <ContactSection />
-        </Suspense> */}
+        <ProjectsSection />
+        <ResumeSection />
+        {/* <ContactSection /> */}
       </main>
 
-      <Suspense fallback={<div className="text-center py-4">Loading footer...</div>}>
-        <Footer />
-      </Suspense>
+      <Footer />
     </div>
   );
 };

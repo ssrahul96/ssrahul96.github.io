@@ -30,7 +30,6 @@ const AboutSection = () => {
                 height={800}
                 loading="lazy"
                 decoding="async"
-                fetchPriority="low"
                 className="w-full h-full object-cover"
               />
             </div>

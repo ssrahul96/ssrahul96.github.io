@@ -5,8 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --mode production --minify esbuild",
+    "build": "bun run build:client && bun run build:ssr && bun ./scripts/ssg.mjs",
+    "build:client": "vite build --mode production --minify esbuild",
+    "build:ssr": "vite build --ssr src/entry-server.tsx --mode production --outDir dist-ssr",
     "build:dev": "vite build --mode development",
+    "test": "bun test ./scripts/ssg-utils.test.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
