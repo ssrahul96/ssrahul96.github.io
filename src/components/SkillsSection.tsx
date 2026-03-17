@@ -19,6 +19,7 @@ const skills: Skill[] = [
   { name: "Ansible", level: 70, category: "infrastructure" },
   { name: "Azure", level: 80, category: "cloud" },
   { name: "AWS", level: 60, category: "cloud" },
+  { name: "GCP", level: 70, category: "cloud" },
   { name: "GitHub Actions", level: 80, category: "ci_cd" },
   { name: "GitLab CI", level: 80, category: "ci_cd" },
   { name: "BitBucket", level: 80, category: "ci_cd" },
