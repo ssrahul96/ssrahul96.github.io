@@ -6,30 +6,54 @@ import { Card, CardContent } from "@/components/ui/card";
 interface Skill {
   name: string;
   level: number;
-  category: "pl" | "infrastructure" | "ci_cd" | "cloud" | "monitoring" | "database";
+  category: "pl" | "infrastructure" | "ci_cd" | "cloud" | "monitoring" | "database" | "networking";
 }
 
 const skills: Skill[] = [
+  // Programming Languages
   { name: "Java", level: 80, category: "pl" },
-  { name: "Go", level: 60, category: "pl" },
+  { name: "Go", level: 75, category: "pl" },
   { name: "Node", level: 60, category: "pl" },
-  { name: "Kubernetes", level: 80, category: "infrastructure" },
-  { name: "Docker", level: 80, category: "infrastructure" },
-  { name: "Terraform", level: 80, category: "infrastructure" },
-  { name: "Ansible", level: 70, category: "infrastructure" },
+
+  // Cloud
   { name: "Azure", level: 80, category: "cloud" },
   { name: "AWS", level: 60, category: "cloud" },
-  { name: "GCP", level: 70, category: "cloud" },
+  { name: "GCP", level: 90, category: "cloud" },
+
+  // Infrastructure
+  { name: "Kubernetes", level: 80, category: "infrastructure" },
+  { name: "Docker", level: 80, category: "infrastructure" },
+  { name: "Terraform", level: 90, category: "infrastructure" },
+  { name: "Ansible", level: 70, category: "infrastructure" },
+  { name: "Puppet", level: 75, category: "infrastructure" },
+  { name: "Packer", level: 70, category: "infrastructure" },
+
+  // CI/CD
   { name: "GitHub Actions", level: 80, category: "ci_cd" },
   { name: "GitLab CI", level: 80, category: "ci_cd" },
   { name: "BitBucket", level: 80, category: "ci_cd" },
-  { name: "Jenkins", level: 70, category: "ci_cd" },
+  { name: "Jenkins", level: 80, category: "ci_cd" },
+  { name: "Buildkite", level: 80, category: "ci_cd" },
+
+  // Monitoring / Observability
   { name: "Datadog", level: 90, category: "monitoring" },
   { name: "Grafana", level: 80, category: "monitoring" },
   { name: "Prometheus", level: 80, category: "monitoring" },
   { name: "OpenTelemetry", level: 70, category: "monitoring" },
+  { name: "PagerDuty", level: 80, category: "monitoring" },
+
+  // Database
   { name: "Mongo", level: 70, category: "database" },
-  { name: "SQL", level: 70, category: "database" },
+  { name: "MSSQL", level: 70, category: "database" },
+  { name: "PostgreSQL", level: 80, category: "database" },
+
+
+  // Networking
+  { name: "NGINX", level: 75, category: "networking" },
+  { name: "HAProxy", level: 75, category: "networking" },
+  { name: "Consul", level: 80, category: "networking" },
+  { name: "Istio", level: 75, category: "networking" },
+
 ];
 
 // const skillTags: any[] = [
@@ -75,10 +99,12 @@ const getCategoryName = (category: string) => {
       return "CI/CD";
     case "cloud":
       return "Cloud Platforms";
+    case "networking":
+      return "Networking";
     case "monitoring":
-      return "Monitoring & Logging";
+      return "Observability";
     case "database":
-      return "Database";
+      return "Databases";
     default:
       return category;
   }

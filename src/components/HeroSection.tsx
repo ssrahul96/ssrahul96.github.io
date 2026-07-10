@@ -21,7 +21,7 @@ const HeroSection = () => {
             </h1>
 
             <h2 className="text-xl md:text-2xl text-muted-foreground animate-fade-in animate-delay-200">
-              DevOps Engineer & Cloud Architect
+              SRE & Cloud Architect
             </h2>
 
             {/* <p className="text-base md:text-lg text-muted-foreground/90 animate-fade-in">

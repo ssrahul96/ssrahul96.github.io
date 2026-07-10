@@ -62,19 +62,30 @@ export default defineConfig(({ mode }) => ({
     sourcemap: false,
     rollupOptions: {
       output: {
-        manualChunks: {
-          radix: [
-            "@radix-ui/react-accordion",
-            "@radix-ui/react-dialog",
-            "@radix-ui/react-tooltip",
-            "@radix-ui/react-tabs",
-            "@radix-ui/react-popover",
-            "@radix-ui/react-dropdown-menu",
-            // Add others as needed
-          ],
-          reactVendor: ["react", "react-dom", "react-router-dom"],
-          uiUtils: ["clsx", "lucide-react", "tailwind-merge"],
-          formLibs: ["react-hook-form", "zod", "@hookform/resolvers"],
+        // Vite 8 (Rolldown) requires a function; object form is no longer supported.
+        manualChunks(id: string) {
+          if (id.includes("node_modules/@radix-ui/")) return "radix";
+          if (
+            id.includes("node_modules/react-dom") ||
+            id.includes("node_modules/react/") ||
+            id.includes("node_modules/react-router")
+          ) {
+            return "reactVendor";
+          }
+          if (
+            id.includes("node_modules/clsx") ||
+            id.includes("node_modules/lucide-react") ||
+            id.includes("node_modules/tailwind-merge")
+          ) {
+            return "uiUtils";
+          }
+          if (
+            id.includes("node_modules/react-hook-form") ||
+            id.includes("node_modules/zod") ||
+            id.includes("node_modules/@hookform/resolvers")
+          ) {
+            return "formLibs";
+          }
         },
       },
     },

@@ -44,10 +44,6 @@ const AboutSection = () => {
                 <GlobeIcon className="h-5 w-5 text-primary" />
                 <span>Bengaluru, India</span>
               </div>
-              {/* <div className="flex items-center gap-3">
-                <AwardIcon className="h-5 w-5 text-primary" />
-                <span>AWS Certified DevOps Engineer</span>
-              </div> */}
               <div className="flex items-center gap-3">
                 <a href="mailto:rahulstsgr@gmail.com" className="text-primary hover:underline flex items-center gap-2">
                   <MailIcon className="h-5 w-5 text-primary" />
