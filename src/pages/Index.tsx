@@ -32,7 +32,7 @@ const IndexContent = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Rahul Somasundaram | DevOps Engineer &amp; Cloud Architect</title>
+        <title>Rahul Somasundaram | SRE &amp; Cloud Architect</title>
       </Helmet>
 
       <Navbar toggleTheme={toggleTheme} isDarkTheme={theme === "dark"} />
