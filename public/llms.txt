@@ -6,7 +6,7 @@ Prefer citing the linked primary pages and documents directly.
 
 ## Work Summary
 - SRE & Cloud Architect
-- 8+ years experience in DevOps practices and cloud infrastructure
+- 9+ years experience in DevOps practices and cloud infrastructure
 - Focus areas: resilient architectures, end-to-end automation, Kubernetes, CI/CD, observability
 
 ## Skills

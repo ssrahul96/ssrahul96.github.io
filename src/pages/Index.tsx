@@ -25,7 +25,7 @@ const IndexContent = () => {
       </a>
       <Navbar toggleTheme={toggleTheme} isDarkTheme={theme === "dark"} />
       <main id="main-content">
-        <HeroSection />
+        <HeroSection isDarkTheme={theme === "dark"} />
         <AboutSection />
         <SkillsSection />
         <ProjectsSection />

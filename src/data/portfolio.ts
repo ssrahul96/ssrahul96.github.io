@@ -36,7 +36,7 @@ export const profile = {
 } as const;
 
 export const highlights = [
-  { value: "8+", label: "Years in DevOps & cloud infrastructure" },
+  { value: "9+", label: "Years in DevOps & cloud infrastructure" },
   { value: "99.9%", label: "Uptime maintained across production platforms" },
   { value: "80%", label: "Manual effort removed through IaC automation" },
 ] as const;

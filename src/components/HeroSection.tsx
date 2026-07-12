@@ -1,19 +1,26 @@
 import { ArrowDown } from "lucide-react";
 import heroBackground from "@/assets/hero-bg.jpg";
+import heroLightBackground from "@/assets/hero-bg-light.jpg";
 import { profile } from "@/data/portfolio";
 import { GitHubIcon, LinkedInIcon } from "./SocialIcons";
 
-const HeroSection = () => (
+interface HeroSectionProps {
+  isDarkTheme: boolean;
+}
+
+const HeroSection = ({ isDarkTheme }: HeroSectionProps) => (
   <section id="top" className="relative flex min-h-screen items-center overflow-hidden">
     <div className="grid-backdrop absolute inset-0 opacity-60" aria-hidden="true" />
     <img
-      src={heroBackground}
+      src={isDarkTheme ? heroBackground : heroLightBackground}
       alt=""
       aria-hidden="true"
-      width={1920}
-      height={1280}
+      width={isDarkTheme ? 1920 : 1536}
+      height={isDarkTheme ? 1280 : 1024}
       decoding="async"
-      className="pointer-events-none absolute right-0 top-1/2 hidden w-[58%] -translate-y-1/2 opacity-70 mix-blend-screen lg:block"
+      className={`hero-background pointer-events-none absolute -right-[34%] top-1/2 w-[108%] -translate-y-1/2 sm:-right-[18%] sm:w-[82%] lg:right-0 lg:w-[58%] ${
+        isDarkTheme ? "hero-background-dark" : "hero-background-light"
+      }`}
     />
     <div className="hero-fade absolute inset-0" aria-hidden="true" />
 
@@ -33,7 +40,7 @@ const HeroSection = () => (
           href="#resume"
           className="glow-ring rounded-full bg-signal px-6 py-3 text-sm font-semibold text-signal-foreground transition-transform hover:-translate-y-0.5"
         >
-          View Resume
+          Explore My Experience
         </a>
         <a
           href={profile.linkedin}

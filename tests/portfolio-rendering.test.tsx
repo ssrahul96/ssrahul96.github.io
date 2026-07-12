@@ -22,7 +22,7 @@ describe("portfolio rendering", () => {
   test("the landing page sections expose their navigation targets and updated content", () => {
     const markup = renderToStaticMarkup(
       <main>
-        <HeroSection />
+        <HeroSection isDarkTheme={true} />
         <AboutSection />
         <SkillsSection />
         <ProjectsSection />
@@ -35,6 +35,9 @@ describe("portfolio rendering", () => {
     }
 
     expect(markup).toContain("hero-bg.jpg");
+    expect(markup).toContain("hero-background");
+    expect(markup).not.toMatch(/hero-background[^"]*\bhidden\b/);
+    expect(markup).toContain("Explore My Experience");
 
     for (const skill of skillGroups.flatMap((group) => group.skills)) {
       expect(markup).toContain(skill.name);
@@ -52,7 +55,7 @@ describe("portfolio rendering", () => {
   test("remote URLs are links only and are never required rendering resources", () => {
     const markup = renderToStaticMarkup(
       <main>
-        <HeroSection />
+        <HeroSection isDarkTheme={true} />
         <ProjectsSection />
       </main>,
     );
@@ -78,6 +81,18 @@ describe("portfolio rendering", () => {
 
     expect(markup).not.toContain("data-skill-icon-fallback=\"true\"");
     expect(markup).not.toContain("OpenJDK");
+  });
+
+  test("the hero selects a dedicated locally bundled image for each theme", () => {
+    const darkMarkup = renderToStaticMarkup(<HeroSection isDarkTheme={true} />);
+    const lightMarkup = renderToStaticMarkup(<HeroSection isDarkTheme={false} />);
+
+    expect(darkMarkup).toContain("hero-bg.jpg");
+    expect(darkMarkup).toContain("hero-background-dark");
+    expect(darkMarkup).not.toContain("hero-bg-light.jpg");
+    expect(lightMarkup).toContain("hero-bg-light.jpg");
+    expect(lightMarkup).toContain("hero-background-light");
+    expect(lightMarkup).not.toContain('src="hero-bg.jpg"');
   });
 
   test("the resume viewer embeds the first-party PDF and supplies a download fallback", () => {
