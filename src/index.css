@@ -1,118 +1,240 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
- 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 222 39% 8%;
+    --foreground: 210 30% 94%;
+    --card: 222 32% 12%;
+    --card-foreground: 210 30% 94%;
+    --popover: 222 34% 10%;
+    --popover-foreground: 210 30% 94%;
+    --primary: 181 74% 65%;
+    --primary-foreground: 222 39% 8%;
+    --secondary: 220 25% 17%;
+    --secondary-foreground: 210 30% 94%;
+    --muted: 220 24% 15%;
+    --muted-foreground: 215 16% 66%;
+    --accent: 207 38% 20%;
+    --accent-foreground: 210 30% 94%;
+    --destructive: 0 72% 52%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 218 22% 21%;
+    --input: 218 22% 21%;
+    --ring: 181 74% 65%;
+    --signal: 181 74% 65%;
+    --signal-foreground: 222 39% 8%;
+    --radius: 0.75rem;
+    --gradient-text: linear-gradient(100deg, #d8fbfa, #67e8e3 45%, #7aa2ff);
+    --shadow-glow: 0 0 0 1px hsl(var(--signal) / 0.24),
+      0 18px 60px -22px hsl(var(--signal) / 0.5);
+    --shadow-card: 0 24px 60px -30px rgb(0 0 0 / 0.7);
+  }
 
+  .light {
+    --background: 210 33% 98%;
+    --foreground: 220 33% 16%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
- 
+    --card-foreground: 220 33% 16%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
- 
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
- 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
- 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
- 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
- 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --popover-foreground: 220 33% 16%;
+    --primary: 187 70% 34%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 25% 94%;
+    --secondary-foreground: 220 33% 16%;
+    --muted: 210 25% 95%;
+    --muted-foreground: 218 14% 43%;
+    --accent: 190 46% 91%;
+    --accent-foreground: 220 33% 16%;
+    --destructive: 0 72% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 216 20% 86%;
+    --input: 216 20% 86%;
+    --ring: 187 70% 34%;
+    --signal: 187 70% 34%;
+    --signal-foreground: 0 0% 100%;
+    --gradient-text: linear-gradient(100deg, #137d87, #068a91 45%, #405fc4);
+    --shadow-glow: 0 0 0 1px hsl(var(--signal) / 0.2),
+      0 18px 60px -26px hsl(var(--signal) / 0.36);
+    --shadow-card: 0 24px 60px -34px rgb(59 71 103 / 0.25);
+  }
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
- 
-    --radius: 0.5rem;
-  }
- 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
- 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
- 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
- 
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 210 40% 98%;
- 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
- 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
- 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
- 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
- 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.5% 48%;
-  }
-}
- 
-@layer base {
   * {
     @apply border-border;
   }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
   body {
-    @apply bg-background text-foreground;
-    /* Use system fonts by default to avoid making the font file critical-path. */
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-      'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji',
-      'Segoe UI Emoji', sans-serif;
+    @apply bg-background text-foreground antialiased;
+    min-width: 320px;
+    margin: 0;
+    font-family: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+    transition: background-color 0.35s ease, color 0.35s ease;
   }
 
-  /* Swap in Inter after it's loaded (deferred via an inline script). */
-  html.fonts-loaded body {
-    font-family: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system,
-      BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
-      'Apple Color Emoji', 'Segoe UI Emoji', sans-serif;
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.025em;
   }
 
-  .section {
-    @apply py-16 md:py-24;
+  ::selection {
+    background: hsl(var(--signal) / 0.28);
+  }
+}
+
+@layer components {
+  .surface-card {
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    background: hsl(var(--card) / 0.88);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(8px);
+  }
+
+  .social-button {
+    @apply inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-signal/50 hover:text-signal;
+  }
+
+  .contact-pill {
+    @apply rounded-full border border-signal/40 bg-signal/10 px-4 py-1.5 text-sm font-medium text-signal transition-colors hover:bg-signal/20;
+  }
+
+  .icon-button {
+    @apply inline-flex size-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-signal/50 hover:text-signal;
+  }
+
+  .skill-card {
+    @apply relative overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1 hover:border-signal/40;
+  }
+
+  .skill-card::after {
+    content: "";
+    @apply pointer-events-none absolute -right-16 -top-16 size-40 rounded-full bg-signal/10 opacity-0 blur-3xl transition-opacity duration-300;
+  }
+
+  .skill-card:hover::after {
+    opacity: 1;
+  }
+
+  .skill-tile {
+    @apply flex flex-col items-center gap-2 rounded-xl border border-border/50 bg-muted/30 px-2 py-4 text-center transition-colors duration-300 hover:border-signal/40 hover:bg-muted/60;
+  }
+
+  .technology-tag {
+    @apply rounded-full border border-border bg-secondary/50 px-2.5 py-1 font-mono text-[0.68rem] text-muted-foreground;
+  }
+
+  .footer-link {
+    @apply flex size-11 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-signal/50 hover:text-signal;
+  }
+
+  .timeline-dot {
+    @apply absolute top-1.5 size-3 rounded-full bg-signal;
+    box-shadow: var(--shadow-glow);
+    left: -2.44rem;
+  }
+
+  .skip-link {
+    @apply fixed left-4 top-4 z-[100] -translate-y-24 rounded-md bg-signal px-4 py-2 font-semibold text-signal-foreground transition-transform focus:translate-y-0;
   }
 }
 
 @layer utilities {
-  .animate-fade-in {
-    opacity: 0;
-    animation: fadeIn 0.8s ease-in-out forwards;
+  .text-gradient {
+    background: var(--gradient-text);
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  /* Utility classes to avoid inline animation-delay styles. */
-  .animate-delay-200 {
-    animation-delay: 200ms;
+  .label-mono {
+    color: hsl(var(--signal));
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
   }
-  .animate-delay-600 {
-    animation-delay: 600ms;
+
+  .grid-backdrop {
+    background-image:
+      linear-gradient(hsl(var(--signal) / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--signal) / 0.06) 1px, transparent 1px);
+    background-size: 46px 46px;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+
+  .glow-ring {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+.hero-fade {
+  background: linear-gradient(90deg, hsl(var(--background)) 20%, hsl(var(--background) / 0.76) 62%, transparent);
+}
+
+.hero-enter {
+  opacity: 0;
+  animation: hero-enter 0.65s ease-out forwards;
+}
+
+.typed-cursor {
+  color: hsl(var(--signal));
+}
+
+.hero-delay-1 {
+  animation-delay: 80ms;
+}
+
+.hero-delay-2 {
+  animation-delay: 160ms;
+}
+
+.hero-delay-3 {
+  animation-delay: 240ms;
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 640px) {
+  .timeline-dot {
+    left: -2.94rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-fade {
+    background: hsl(var(--background) / 0.72);
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }

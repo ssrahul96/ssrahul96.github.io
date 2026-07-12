@@ -1,60 +1,67 @@
+import { ArrowDown } from "lucide-react";
+import heroBackground from "@/assets/hero-bg.jpg";
+import { profile } from "@/data/portfolio";
+import { GitHubIcon, LinkedInIcon } from "./SocialIcons";
 
-import { Button } from "@/components/ui/button";
-import { ArrowDownIcon } from "lucide-react";
-import { SiGithub } from '@icons-pack/react-simple-icons';
+const HeroSection = () => (
+  <section id="top" className="relative flex min-h-screen items-center overflow-hidden">
+    <div className="grid-backdrop absolute inset-0 opacity-60" aria-hidden="true" />
+    <img
+      src={heroBackground}
+      alt=""
+      aria-hidden="true"
+      width={1920}
+      height={1280}
+      decoding="async"
+      className="pointer-events-none absolute right-0 top-1/2 hidden w-[58%] -translate-y-1/2 opacity-70 mix-blend-screen lg:block"
+    />
+    <div className="hero-fade absolute inset-0" aria-hidden="true" />
 
-const HeroSection = () => {
-  return (
-    <section id="home" className="min-h-screen flex items-center relative">
-      <div
-        className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-secondary/40 via-background to-background"
-        aria-hidden="true"
-      />
-      <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-7 space-y-6">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-fade-in">
-              <span className="text-muted-foreground">Hi, I'm</span>{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600">
-                Rahul Somasundaram
-              </span>
-            </h1>
-
-            <h2 className="text-xl md:text-2xl text-muted-foreground animate-fade-in animate-delay-200">
-              SRE & Cloud Architect
-            </h2>
-
-            {/* <p className="text-base md:text-lg text-muted-foreground/90 animate-fade-in">
-              Driven by a DevOps mindset, I partner with cross-functional teams to design resilient architectures, automate end-to-end workflows, and deliver consistently high-performing applications at scale.
-            </p> */}
-
-            <div className="flex flex-wrap gap-4 pt-4 animate-fade-in animate-delay-600">
-              <a href="https://www.linkedin.com/in/ssrahul96/" target="_blank">
-                <Button size="lg" variant="outline" className="rounded-full gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                  LinkedIn Profile
-                </Button>
-              </a>
-              <a href="https://github.com/ssrahul96/" target="_blank">
-                <Button size="lg" variant="outline" className="rounded-full gap-2">
-                  <SiGithub size={18} />
-                  GitHub Profile
-                </Button>
-              </a>
-            </div>
-          </div>
-        </div>
+    <div className="relative mx-auto w-full max-w-6xl px-6 py-28">
+      <p className="label-mono hero-enter">{profile.role}</p>
+      <h1 className="hero-enter hero-delay-1 mt-5 max-w-3xl text-5xl font-semibold leading-[1.05] sm:text-6xl lg:text-7xl">
+        Hi, I&apos;m <span className="text-gradient">{profile.firstName}</span>
+        <br />
+        Somasundaram
+      </h1>
+      <p className="hero-enter hero-delay-2 mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+        I design resilient cloud architectures, automate infrastructure end-to-end,
+        and keep platforms fast and reliable at scale.
+      </p>
+      <div className="hero-enter hero-delay-3 mt-9 flex flex-wrap items-center gap-3">
+        <a
+          href="#resume"
+          className="glow-ring rounded-full bg-signal px-6 py-3 text-sm font-semibold text-signal-foreground transition-transform hover:-translate-y-0.5"
+        >
+          View Resume
+        </a>
+        <a
+          href={profile.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="social-button"
+        >
+          <LinkedInIcon className="size-4" aria-hidden="true" /> LinkedIn
+        </a>
+        <a
+          href={profile.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="social-button"
+        >
+          <GitHubIcon className="size-4" aria-hidden="true" /> GitHub
+        </a>
       </div>
+    </div>
 
-      <a
-        href="#about"
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors animate-fade-in flex flex-col items-center gap-2"
-      >
-        <span className="text-sm">Scroll Down</span>
-        <ArrowDownIcon className="h-5 w-5 animate-bounce" />
-      </a>
-    </section>
-  );
-};
+    <a
+      href="#about"
+      className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-xs text-muted-foreground transition-colors hover:text-signal"
+    >
+      <span className="label-mono">scroll</span>
+      <ArrowDown className="size-4 animate-bounce" aria-hidden="true" />
+    </a>
+  </section>
+);
 
 export default HeroSection;

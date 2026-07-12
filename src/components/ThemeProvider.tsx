@@ -1,69 +1,61 @@
-
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 
 type Theme = "light" | "dark";
 
-type ThemeProviderProps = {
+interface ThemeProviderProps {
   children: ReactNode;
-};
+}
 
-type ThemeProviderState = {
+interface ThemeProviderState {
   theme: Theme;
   toggleTheme: () => void;
-};
+}
 
-const ThemeProviderContext = createContext<ThemeProviderState | undefined>(
-  undefined
-);
+const ThemeProviderContext = createContext<ThemeProviderState | undefined>(undefined);
 
+/** Reads the theme already applied by the inline bootstrap script, then falls back safely. */
+function getInitialTheme(): Theme {
+  if (typeof document !== "undefined" && document.documentElement.classList.contains("light")) {
+    return "light";
+  }
+
+  return "dark";
+}
+
+/** Provides a persistent light/dark theme without sending preference data off-device. */
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
   useEffect(() => {
-    // Check if user has a theme preference in localStorage
-    const storedTheme = localStorage.getItem("theme") as Theme | null;
-
-    // Check if user has a system preference
-    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-
-    // Set theme based on stored preference or system preference
-    setTheme(storedTheme || systemTheme);
-  }, []);
-
-  useEffect(() => {
-    // Update the data-theme attribute on the document element
-    const root = window.document.documentElement;
+    const root = document.documentElement;
     root.classList.remove("light", "dark");
     root.classList.add(theme);
 
-    // Store user's preference in localStorage
-    localStorage.setItem("theme", theme);
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {
+      // The visual theme still works when browser storage is unavailable.
+    }
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
-
-  const value = {
-    theme,
-    toggleTheme,
+    setTheme((currentTheme) => (currentTheme === "light" ? "dark" : "light"));
   };
 
   return (
-    <ThemeProviderContext.Provider value={value}>
+    <ThemeProviderContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </ThemeProviderContext.Provider>
   );
 }
 
-export const useTheme = (): ThemeProviderState => {
+/** Returns the active theme context and reports incorrect provider usage clearly. */
+export function useTheme(): ThemeProviderState {
   const context = useContext(ThemeProviderContext);
 
-  if (context === undefined) {
+  if (!context) {
     throw new Error("useTheme must be used within a ThemeProvider");
   }
 
   return context;
-};
+}

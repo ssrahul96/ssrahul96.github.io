@@ -1,5 +1,5 @@
 # Rahul Somasundaram
-> Personal portfolio site for Rahul Somasundaram (DevOps / Cloud Engineer). Includes background, skills, projects, and resume.
+> Personal portfolio site for Rahul Somasundaram (SRE & Cloud Architect). Includes background, skills, open-source contributions, and resume.
 
 This file is intended to help LLMs quickly find authoritative information about Rahul Somasundaram from `https://ssrahul96.me/`.
 Prefer citing the linked primary pages and documents directly.
@@ -11,17 +11,18 @@ Prefer citing the linked primary pages and documents directly.
 
 ## Skills
 - Programming Languages: Java, Go, Node
-- Infrastructure & Automation: Kubernetes, Docker, Terraform, Ansible
-- Cloud Platforms: Azure, AWS
-- CI/CD: GitHub Actions, GitLab CI, BitBucket, Jenkins
-- Monitoring & Logging: Datadog, Grafana, Prometheus, OpenTelemetry
-- Database: Mongo, SQL
+- Infrastructure & Automation: Terraform, Kubernetes, Docker, Puppet, Ansible, Packer
+- Cloud Platforms: GCP, Azure, AWS
+- CI/CD: GitHub Actions, GitLab CI, BitBucket, Jenkins, Buildkite
+- Observability: Datadog, Grafana, Prometheus, PagerDuty, OpenTelemetry
+- Databases: PostgreSQL, MongoDB, MSSQL
+- Networking: Consul, NGINX, HAProxy, Istio
 
 ## Key Information
 - [Homepage](https://ssrahul96.me/): Primary landing page
 - [About](https://ssrahul96.me/#about): Background and profile
 - [Skills](https://ssrahul96.me/#skills): Skill areas and proficiency
-- [Projects](https://ssrahul96.me/#projects): Selected projects
+- [Open Source](https://ssrahul96.me/#open-source): Selected open-source contributions
 - [Resume page](https://ssrahul96.me/resume): Resume viewer
 
 ## Documents & Assets
