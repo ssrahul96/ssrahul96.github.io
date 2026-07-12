@@ -1,9 +1,7 @@
-
-import { useState, useEffect, useRef } from "react";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { MoonIcon, SunIcon, MenuIcon, XIcon } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import Typed from "typed.js";
+import { navLinks, profile } from "@/data/portfolio";
 
 interface NavbarProps {
   toggleTheme: () => void;
@@ -13,142 +11,118 @@ interface NavbarProps {
 const Navbar = ({ toggleTheme, isDarkTheme }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const identityRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    const updateScrolledState = () => setIsScrolled(window.scrollY > 24);
+    updateScrolledState();
+    window.addEventListener("scroll", updateScrolledState, { passive: true });
+    return () => window.removeEventListener("scroll", updateScrolledState);
   }, []);
 
-  const navItems = [
-    { label: "Home", href: "home" },
-    { label: "About", href: "about" },
-    { label: "Skills", href: "skills" },
-    { label: "Projects", href: "projects" },
-    { label: "Resume", href: "resume" },
-    // { label: "Contact", href: "#contact" },
-  ];
-
-  const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const el = useRef(null);
-
   useEffect(() => {
-    const typed = new Typed(el.current, {
-      strings: ['Rahul', 'Software Engineer', 'DevOps', 'Techie', 'Open Source Contributor'],
+    if (!identityRef.current || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    const typed = new Typed(identityRef.current, {
+      strings: ["Rahul", "Software Engineer", "DevOps", "Techie", "Open Source Contributor"],
       typeSpeed: 100,
       backSpeed: 25,
-      loop: true
+      loop: true,
+      cursorChar: "_",
     });
 
-    return () => {
-      // Destroy Typed instance during cleanup to stop animation
-      typed.destroy();
-    };
+    return () => typed.destroy();
   }, []);
 
   return (
-    <nav
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4",
-        isScrolled
-          ? "bg-background/80 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
-      )}
+    <header
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
+        isScrolled || isMobileMenuOpen
+          ? "border-border/70 bg-background/85 backdrop-blur-xl"
+          : "border-transparent"
+      }`}
     >
-      <div className="container flex items-center justify-between">
-        <a href="#home" className="text-xl font-bold group">
-          {/* <span className="text-foreground">Rahul</span> */}
-          <span className="text-foreground" ref={el} />
-          {/* <span className="text-primary animate-ping inline-flex ml-0.5 opacity-75">_</span> */}
+      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+        <a
+          href="#top"
+          aria-label="Rahul Somasundaram — back to top"
+          className="flex min-w-0 items-center font-display text-lg font-semibold"
+        >
+          <span
+            ref={identityRef}
+            className="max-w-[145px] overflow-hidden whitespace-nowrap text-gradient sm:max-w-[260px] md:max-w-none"
+          >
+            Rahul
+          </span>
         </a>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6">
-          {navItems.map((item) => (
-            <button
-              key={item.label}
-              onClick={() => scrollToSection(item.href)}
-              className="text-foreground hover:text-primary transition-colors font-medium"
+        <div className="hidden items-center gap-8 md:flex">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
-              {item.label}
-            </button>
+              {link.label}
+            </a>
           ))}
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleTheme}
-            className="ml-2"
-            aria-label="Toggle theme"
-          >
-            {isDarkTheme ? (
-              <SunIcon className="h-5 w-5" />
-            ) : (
-              <MoonIcon className="h-5 w-5" />
-            )}
-          </Button>
+          <a href={`mailto:${profile.email}`} className="contact-pill">
+            Get in touch
+          </a>
+          <ThemeButton isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
         </div>
 
-        {/* Mobile Menu Button */}
-        <div className="flex md:hidden items-center gap-2">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleTheme}
-            className="ml-2"
-            aria-label="Toggle theme"
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeButton isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen((isOpen) => !isOpen)}
+            aria-label={isMobileMenuOpen ? "Close navigation" : "Open navigation"}
+            aria-expanded={isMobileMenuOpen}
+            className="icon-button"
           >
-            {isDarkTheme ? (
-              <SunIcon className="h-5 w-5" />
-            ) : (
-              <MoonIcon className="h-5 w-5" />
-            )}
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="ml-2"
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? (
-              <XIcon className="h-5 w-5" />
-            ) : (
-              <MenuIcon className="h-5 w-5" />
-            )}
-          </Button>
+            {isMobileMenuOpen ? <X className="size-4" /> : <Menu className="size-4" />}
+          </button>
         </div>
-      </div>
+      </nav>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-md shadow-lg py-4 animate-fade-in">
-          <div className="container flex flex-col gap-4">
-            {navItems.map((item) => (
+      {isMobileMenuOpen ? (
+        <div className="border-t border-border/70 px-6 py-5 md:hidden">
+          <div className="mx-auto flex max-w-6xl flex-col gap-1">
+            {navLinks.map((link) => (
               <a
-                key={item.label}
-                href={item.href}
-                className="text-foreground hover:text-primary transition-colors py-2 font-medium"
+                key={link.href}
+                href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
+                className="rounded-lg px-3 py-3 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
               >
-                {item.label}
+                {link.label}
               </a>
             ))}
+            <a href={`mailto:${profile.email}`} className="contact-pill mt-3 w-fit">
+              Get in touch
+            </a>
           </div>
         </div>
-      )}
-    </nav>
+      ) : null}
+    </header>
   );
 };
+
+/** Theme control shared by the desktop and mobile navigation. */
+function ThemeButton({ isDarkTheme, toggleTheme }: NavbarProps) {
+  return (
+    <button
+      type="button"
+      onClick={toggleTheme}
+      aria-label={`Switch to ${isDarkTheme ? "light" : "dark"} mode`}
+      className="icon-button"
+    >
+      {isDarkTheme ? <Sun className="size-4" /> : <Moon className="size-4" />}
+    </button>
+  );
+}
 
 export default Navbar;

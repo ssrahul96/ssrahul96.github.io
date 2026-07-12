@@ -4,6 +4,7 @@ logs
 bun-debug.log*
 
 node_modules
+*.tsbuildinfo
 dist
 dist-ssr
 *.local
