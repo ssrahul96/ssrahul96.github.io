@@ -1,4 +1,5 @@
 import { describe, expect, test } from "bun:test";
+import { readFileSync } from "node:fs";
 import {
   contributions,
   experience,
@@ -8,13 +9,43 @@ import {
 } from "../src/data/portfolio";
 
 describe("portfolio content", () => {
-  test("skill names are unique and proficiency levels stay within valid bounds", () => {
+  test("skill names are unique and the portfolio includes a substantial toolset", () => {
     const skills = skillGroups.flatMap((group) => group.skills);
     const names = skills.map((skill) => skill.name);
 
     expect(new Set(names).size).toBe(names.length);
     expect(skills.length).toBeGreaterThanOrEqual(25);
-    expect(skills.every((skill) => skill.level >= 0 && skill.level <= 100)).toBe(true);
+  });
+
+  test("AI-assisted engineering lists the current coding assistants", () => {
+    const aiTools = skillGroups.find(
+      (group) => group.title === "AI-Assisted Engineering",
+    );
+
+    expect(aiTools?.skills.map((skill) => skill.name)).toEqual([
+      "Claude Code",
+      "OpenAI Codex",
+      "Cursor",
+      "Gemini",
+    ]);
+  });
+
+  test("documentation includes every AI-assisted engineering tool", () => {
+    const documentationFiles = [
+      new URL("../README.md", import.meta.url),
+      new URL("../public/llms.txt", import.meta.url),
+    ];
+    const aiTools = ["Claude Code", "OpenAI Codex", "Cursor", "Gemini"];
+
+    for (const documentationFile of documentationFiles) {
+      const content = readFileSync(documentationFile, "utf8");
+
+      expect(content).toContain("AI-Assisted Engineering");
+      expect(content).toContain("Cloudflare");
+      for (const tool of aiTools) {
+        expect(content).toContain(tool);
+      }
+    }
   });
 
   test("navigation links target unique sections rendered by the portfolio", () => {

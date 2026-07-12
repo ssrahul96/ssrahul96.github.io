@@ -1,11 +1,13 @@
 import {
   Activity,
+  Bot,
   Cloud,
   Code2,
   Database,
   GitBranch,
   Network,
   Server,
+  Sparkles,
   TerminalSquare,
   type LucideIcon,
 } from "lucide-react";
@@ -13,9 +15,13 @@ import {
   SiAnsible,
   SiBitbucket,
   SiBuildkite,
+  SiClaude,
+  SiCloudflare,
   SiConsul,
   SiDatadog,
   SiDocker,
+  SiCursor,
+  SiGooglegemini,
   SiGithubactions,
   SiGitlab,
   SiGo,
@@ -48,6 +54,7 @@ const categoryIcons: Record<string, LucideIcon> = {
   "Cloud Platforms": Cloud,
   "Infrastructure & Automation": Server,
   "CI/CD": GitBranch,
+  "AI-Assisted Engineering": Sparkles,
   Observability: Activity,
   Databases: Database,
   Networking: Network,
@@ -68,6 +75,10 @@ const skillIcons = {
   BitBucket: SiBitbucket,
   Jenkins: SiJenkins,
   Buildkite: SiBuildkite,
+  "Claude Code": SiClaude,
+  "OpenAI Codex": Bot,
+  Cursor: SiCursor,
+  Gemini: SiGooglegemini,
   Datadog: SiDatadog,
   Grafana: SiGrafana,
   Prometheus: SiPrometheus,
@@ -75,6 +86,7 @@ const skillIcons = {
   OpenTelemetry: SiOpentelemetry,
   PostgreSQL: SiPostgresql,
   Mongo: SiMongodb,
+  Cloudflare: SiCloudflare,
   Consul: SiConsul,
   NGINX: SiNginx,
   Istio: SiIstio,
@@ -103,6 +115,10 @@ const iconColors: Record<string, string> = {
   BitBucket: "#2684FF",
   Jenkins: "#D24939",
   Buildkite: "#14CC80",
+  "Claude Code": "#D97757",
+  "OpenAI Codex": "#10A37F",
+  Cursor: "#8B8B8B",
+  Gemini: "#4E82EE",
   Datadog: "#8B5CF6",
   Grafana: "#F46800",
   Prometheus: "#E6522C",
@@ -110,6 +126,7 @@ const iconColors: Record<string, string> = {
   OpenTelemetry: "#F5A800",
   PostgreSQL: "#4169E1",
   Mongo: "#47A248",
+  Cloudflare: "#F38020",
   Consul: "#F24C53",
   NGINX: "#009639",
   Istio: "#466BB0",
@@ -165,16 +182,15 @@ const SkillsSection = () => (
       <SectionHeading
         eyebrow="// what i work with"
         title="Skills & Technologies"
-        description="Cloud platforms, automation, observability, and the tools I use to keep production systems dependable."
+        description="Cloud platforms, automation, AI-assisted engineering, observability, and the tools I use to keep production systems dependable."
       />
 
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-12">
-        {skillGroups.map((group, index) => {
+        {skillGroups.map((group) => {
           const CategoryIcon = categoryIcons[group.title] ?? Server;
-          const span = index < 4 ? "lg:col-span-3" : "lg:col-span-4";
 
           return (
-            <article key={group.title} className={`surface-card skill-card ${span}`}>
+            <article key={group.title} className="surface-card skill-card lg:col-span-3">
               <div className="mb-6 flex items-center gap-3">
                 <span className="grid size-10 place-items-center rounded-xl border border-signal/25 bg-signal/10 text-signal">
                   <CategoryIcon className="size-5" strokeWidth={1.75} aria-hidden="true" />

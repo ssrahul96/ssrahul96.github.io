@@ -6,11 +6,11 @@
 
 - 🏙️ I'm currently living in **Bengaluru, India**
 
-- 🌱 I’m currently deepening my knowledge of **Kubernetes and platform engineering**
+- 🌱 I’m currently deepening my knowledge of **Kubernetes, platform engineering, and AI-assisted engineering**
 
 - 👨‍💻 Portfolio available at [ssrahul96.me](https://ssrahul96.me)
 
-- 💬 Ask me about **Kubernetes, cloud infrastructure, platform engineering, observability, and CI/CD**
+- 💬 Ask me about **Kubernetes, cloud infrastructure, platform engineering, AI-assisted engineering, observability, and CI/CD**
 
 - 📫 How to reach me **<rahulstsgr@gmail.com>**
 
@@ -26,6 +26,7 @@
 - **Cloud Platforms:** Google Cloud Platform, Microsoft Azure, Amazon Web Services
 - **Infrastructure & Automation:** Terraform, Kubernetes, Docker, Puppet, Ansible, Packer
 - **CI/CD:** GitHub Actions, GitLab CI, Bitbucket, Jenkins, Buildkite
+- **AI-Assisted Engineering:** Claude Code, OpenAI Codex, Cursor, Gemini
 - **Observability:** Datadog, Grafana, Prometheus, PagerDuty, OpenTelemetry
 - **Databases:** PostgreSQL, MongoDB, Microsoft SQL Server
-- **Networking & Service Mesh:** Consul, NGINX, HAProxy, Istio
+- **Networking & Service Mesh:** Cloudflare, Consul, NGINX, HAProxy, Istio

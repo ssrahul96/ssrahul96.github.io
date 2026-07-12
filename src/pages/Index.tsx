@@ -17,7 +17,7 @@ const IndexContent = () => {
         <title>Rahul Somasundaram | SRE &amp; Cloud Architect</title>
         <meta
           name="description"
-          content="Portfolio of Rahul Somasundaram, an SRE and cloud architect focused on reliable infrastructure, automation, and cloud-native platforms."
+          content="Portfolio of Rahul Somasundaram, an SRE and cloud architect focused on reliable infrastructure, automation, cloud-native platforms, and AI-assisted engineering."
         />
       </Helmet>
       <a href="#main-content" className="skip-link">

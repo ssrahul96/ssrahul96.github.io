@@ -6,7 +6,7 @@ All notable changes to this portfolio are documented here.
 
 - Introduced the infrastructure-inspired teal and slate portfolio design.
 - Centralised skills, open-source contributions, work history, and profile copy.
-- Updated the skills catalogue and professional experience.
+- Updated the skills catalogue with AI-assisted engineering tools and refreshed the professional experience.
 - Added responsive navigation, light and dark themes, and reduced-motion support.
 - Replaced the remote résumé viewer with a first-party PDF embed.
 - Removed development-platform tagging and avoided analytics or telemetry integrations.

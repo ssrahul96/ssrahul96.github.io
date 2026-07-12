@@ -1,6 +1,5 @@
 export interface Skill {
   name: string;
-  level: number;
 }
 
 export interface SkillGroup {
@@ -45,65 +44,75 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "Programming",
     skills: [
-      { name: "Java", level: 80 },
-      { name: "Go", level: 75 },
-      { name: "Node", level: 60 },
+      { name: "Java" },
+      { name: "Go" },
+      { name: "Node" },
     ],
   },
   {
     title: "Cloud Platforms",
     skills: [
-      { name: "GCP", level: 90 },
-      { name: "Azure", level: 80 },
-      { name: "AWS", level: 60 },
+      { name: "GCP" },
+      { name: "Azure" },
+      { name: "AWS" },
     ],
   },
   {
     title: "Infrastructure & Automation",
     skills: [
-      { name: "Terraform", level: 90 },
-      { name: "Kubernetes", level: 80 },
-      { name: "Docker", level: 80 },
-      { name: "Puppet", level: 75 },
-      { name: "Ansible", level: 70 },
-      { name: "Packer", level: 70 },
+      { name: "Terraform" },
+      { name: "Kubernetes" },
+      { name: "Docker" },
+      { name: "Puppet" },
+      { name: "Ansible" },
+      { name: "Packer" },
     ],
   },
   {
     title: "CI/CD",
     skills: [
-      { name: "GitHub Actions", level: 80 },
-      { name: "GitLab CI", level: 80 },
-      { name: "BitBucket", level: 80 },
-      { name: "Jenkins", level: 80 },
-      { name: "Buildkite", level: 80 },
+      { name: "GitHub Actions" },
+      { name: "GitLab CI" },
+      { name: "BitBucket" },
+      { name: "Jenkins" },
+      { name: "Buildkite" },
+    ],
+  },
+  {
+    title: "AI-Assisted Engineering",
+    skills: [
+      { name: "Claude Code" },
+      { name: "OpenAI Codex" },
+      { name: "Cursor" },
+      { name: "Gemini" },
     ],
   },
   {
     title: "Observability",
     skills: [
-      { name: "Datadog", level: 90 },
-      { name: "Grafana", level: 80 },
-      { name: "Prometheus", level: 80 },
-      { name: "PagerDuty", level: 80 },
-      { name: "OpenTelemetry", level: 70 },
+      { name: "Datadog" },
+      { name: "Grafana" },
+      { name: "Prometheus" },
+      { name: "PagerDuty" },
+      { name: "OpenTelemetry" },
     ],
   },
   {
     title: "Databases",
     skills: [
-      { name: "PostgreSQL", level: 80 },
-      { name: "Mongo", level: 70 },
-      { name: "MSSQL", level: 70 },
+      { name: "PostgreSQL" },
+      { name: "Mongo" },
+      { name: "MSSQL" },
     ],
   },
   {
     title: "Networking",
     skills: [
-      { name: "Consul", level: 80 },
-      { name: "NGINX", level: 75 },
-      { name: "HAProxy", level: 75 },
-      { name: "Istio", level: 75 },
+      { name: "Cloudflare" },
+      { name: "Consul" },
+      { name: "NGINX" },
+      { name: "HAProxy" },
+      { name: "Istio" },
     ],
   },
 ];

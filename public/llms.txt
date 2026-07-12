@@ -7,21 +7,22 @@ Prefer citing the linked primary pages and documents directly.
 ## Work Summary
 - SRE & Cloud Architect
 - 9+ years experience in DevOps practices and cloud infrastructure
-- Focus areas: resilient architectures, end-to-end automation, Kubernetes, CI/CD, observability
+- Focus areas: resilient architectures, end-to-end automation, Kubernetes, AI-assisted engineering, CI/CD, observability
 
 ## Skills
 - Programming Languages: Java, Go, Node
 - Infrastructure & Automation: Terraform, Kubernetes, Docker, Puppet, Ansible, Packer
 - Cloud Platforms: GCP, Azure, AWS
 - CI/CD: GitHub Actions, GitLab CI, BitBucket, Jenkins, Buildkite
+- AI-Assisted Engineering: Claude Code, OpenAI Codex, Cursor, Gemini
 - Observability: Datadog, Grafana, Prometheus, PagerDuty, OpenTelemetry
 - Databases: PostgreSQL, MongoDB, MSSQL
-- Networking: Consul, NGINX, HAProxy, Istio
+- Networking: Cloudflare, Consul, NGINX, HAProxy, Istio
 
 ## Key Information
 - [Homepage](https://ssrahul96.me/): Primary landing page
 - [About](https://ssrahul96.me/#about): Background and profile
-- [Skills](https://ssrahul96.me/#skills): Skill areas and proficiency
+- [Skills](https://ssrahul96.me/#skills): Tools and technology areas
 - [Open Source](https://ssrahul96.me/#open-source): Selected open-source contributions
 - [Resume page](https://ssrahul96.me/resume): Resume viewer
 

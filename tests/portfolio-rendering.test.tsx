@@ -83,6 +83,21 @@ describe("portfolio rendering", () => {
     expect(markup).not.toContain("OpenJDK");
   });
 
+  test("AI-assisted engineering renders every tool with a local icon", () => {
+    const markup = renderToStaticMarkup(<SkillsSection />);
+    const aiTools = ["Claude Code", "OpenAI Codex", "Cursor", "Gemini"];
+
+    expect(markup).toContain("AI-Assisted Engineering");
+    expect(markup).toContain("AI-assisted engineering, observability");
+    expect(markup).not.toContain("lg:col-span-4");
+
+    for (const tool of aiTools) {
+      expect(markup).toContain(`data-skill-icon="${tool}"`);
+    }
+
+    expect(markup).not.toContain('data-skill-icon-fallback="true"');
+  });
+
   test("the hero selects a dedicated locally bundled image for each theme", () => {
     const darkMarkup = renderToStaticMarkup(<HeroSection isDarkTheme={true} />);
     const lightMarkup = renderToStaticMarkup(<HeroSection isDarkTheme={false} />);
