@@ -27,7 +27,6 @@ import {
   SiMongodb,
   SiNginx,
   SiNodedotjs,
-  SiOpenjdk,
   SiOpentelemetry,
   SiPacker,
   SiPagerduty,
@@ -36,6 +35,11 @@ import {
   SiPuppet,
   SiTerraform,
 } from "@icons-pack/react-simple-icons";
+import awsIcon from "@/assets/skills/aws.svg";
+import azureIcon from "@/assets/skills/azure.svg";
+import haproxyIcon from "@/assets/skills/haproxy.svg";
+import javaIcon from "@/assets/skills/java.svg";
+import mssqlIcon from "@/assets/skills/mssql.svg";
 import { skillGroups } from "@/data/portfolio";
 import SectionHeading from "./SectionHeading";
 
@@ -50,7 +54,6 @@ const categoryIcons: Record<string, LucideIcon> = {
 };
 
 const skillIcons = {
-  Java: SiOpenjdk,
   Go: SiGo,
   Node: SiNodedotjs,
   GCP: SiGooglecloud,
@@ -77,8 +80,15 @@ const skillIcons = {
   Istio: SiIstio,
 };
 
+const brandedSvgIcons = {
+  Java: javaIcon,
+  Azure: azureIcon,
+  AWS: awsIcon,
+  HAProxy: haproxyIcon,
+  MSSQL: mssqlIcon,
+} as const;
+
 const iconColors: Record<string, string> = {
-  Java: "#E76F00",
   Go: "#00ADD8",
   Node: "#5FA04E",
   GCP: "#4285F4",
@@ -105,12 +115,35 @@ const iconColors: Record<string, string> = {
   Istio: "#466BB0",
 };
 
-/** Uses a local icon component when available and a neutral fallback for unsupported brands. */
+/** Resolves skill marks from locally bundled SVG assets before using the icon component set. */
 function SkillIcon({ name }: { name: string }) {
+  const brandedSvg = brandedSvgIcons[name as keyof typeof brandedSvgIcons];
+
+  if (brandedSvg) {
+    return (
+      <img
+        src={brandedSvg}
+        alt=""
+        aria-hidden="true"
+        width={28}
+        height={28}
+        data-skill-icon={name}
+        className="size-7 shrink-0 object-contain transition-transform duration-300 group-hover/tile:scale-110"
+      />
+    );
+  }
+
   const Icon = skillIcons[name as keyof typeof skillIcons];
 
   if (!Icon) {
-    return <Code2 className="size-7 text-signal" aria-hidden="true" />;
+    return (
+      <Code2
+        className="size-7 text-signal"
+        aria-hidden="true"
+        data-skill-icon={name}
+        data-skill-icon-fallback="true"
+      />
+    );
   }
 
   return (
@@ -119,6 +152,7 @@ function SkillIcon({ name }: { name: string }) {
       color={iconColors[name]}
       title=""
       aria-hidden="true"
+      data-skill-icon={name}
       className="shrink-0 transition-transform duration-300 group-hover/tile:scale-110"
     />
   );

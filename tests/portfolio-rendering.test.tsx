@@ -61,6 +61,25 @@ describe("portfolio rendering", () => {
     expect(markup).not.toMatch(/analytics|lovable|telemetry-client|tracking-pixel/i);
   });
 
+  test("skills use locally bundled SVG marks for the requested brands", () => {
+    const markup = renderToStaticMarkup(<SkillsSection />);
+    const expectedBrandIcons = {
+      Java: "java.svg",
+      Azure: "azure.svg",
+      AWS: "aws.svg",
+      HAProxy: "haproxy.svg",
+      MSSQL: "mssql.svg",
+    } as const;
+
+    for (const [skill, asset] of Object.entries(expectedBrandIcons)) {
+      expect(markup).toContain(`data-skill-icon="${skill}"`);
+      expect(markup).toContain(asset);
+    }
+
+    expect(markup).not.toContain("data-skill-icon-fallback=\"true\"");
+    expect(markup).not.toContain("OpenJDK");
+  });
+
   test("the resume viewer embeds the first-party PDF and supplies a download fallback", () => {
     const markup = renderToStaticMarkup(<ResumeViewer />);
 
